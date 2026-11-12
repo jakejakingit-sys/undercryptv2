@@ -304,6 +304,7 @@ static void draw_room(void){
       if(boss_id==0&&((t>=1&&t<35)||(t>=78&&t<112))){int x=boss_warn_x,y=boss_warn_y;box(x-8,y-1,17,2,C_RED);box(x-1,y-8,2,17,C_RED);box(x-4,y-4,8,8,C_VOID);box(x-3,y-3,6,6,C_WHITE);box(x-1,y-1,2,2,C_RED);}
       else if(boss_id==1){if(t<30||(t>=70&&t<86)){int x=boss_warn_x;for(int y=34;y<230;y+=12)box(x-3,y,7,5,C_RED);box(x-7,226,15,4,C_WHITE);}if(boss_phase){int x=boss_warn_x;box(x-8,32,17,201,C_RED);box(x-2,32,5,201,C_WHITE);}}
       else if(boss_id==2&&((t<36)||(boss_pattern==2&&t>=84&&t<119))){int rot=(int)(ticks/130)%16;for(int i=0;i<16;i++){int a=(i+rot)&15;bool gap=i<4;line(160,86,160+DIR_X[a]*5,86+DIR_Y[a]*5,gap?C_MINT:C_RED);}}
+    }
   }else if(enemy_alive){draw_enemy();}
   draw_bullets();draw_player();draw_particles();draw_hud();
   if(state==ST_BOSS){center(BOSS_NAMES[boss_id],112,C_GOLD);if(door_open)center("EXIT RIGHT  >",124,C_MINT);else if(boss_id==1&&boss_phase)center("BEAM! DASH OR MOVE!",124,C_RED);else if(boss_id==2)center("FIND THE MINT GAP",124,C_MINT);else center("RED MARKS: MOVE NOW",124,C_WALLHI);}
